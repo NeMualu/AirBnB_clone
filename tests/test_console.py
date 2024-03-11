@@ -17,8 +17,6 @@ from models.state import State
 from models.city import City
 from models.engine.file_storage import FileStorage
 from models import storage
-
-
 class TestHbnbConsole(unittest.TestCase):
     """this will all the
     aspects about console"""
@@ -27,8 +25,6 @@ class TestHbnbConsole(unittest.TestCase):
         """Sets up tests
         for the console methods."""
         pass
-
-
 class TestHBNB_prompt(unittest.TestCase):
 
     def testprompt(self):
@@ -38,11 +34,7 @@ class TestHBNB_prompt(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
-
-
 class TestHBNBcreate(unittest.TestCase):
-
-
     @classmethod
     def setUp(self):
         try:
@@ -110,9 +102,6 @@ class TestHBNBcreate(unittest.TestCase):
             self.assertLess(0, len(output.getvalue().strip()))
             testKey = "Review.{}".format(output.getvalue().strip())
             self.assertIn(testKey, storage.all().keys())
-
-
-
 
 if __name__ == "__main__":
     unittest.main()
